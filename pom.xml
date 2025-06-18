@@ -72,7 +72,7 @@
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.7.0.1746</version>
+          <version>7.1.0.4889</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -86,7 +86,7 @@
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
                 <sonar.host.url>
-                  http://52.66.200.102:9000
+                  http://10.150.17.38:9000
                 </sonar.host.url>
             </properties>
         </profile>
