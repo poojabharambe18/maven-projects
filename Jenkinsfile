@@ -1,10 +1,6 @@
      pipeline {
     agent any
 
-    tools {
-        git 'git' 
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
