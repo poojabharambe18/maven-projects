@@ -1,5 +1,5 @@
      pipeline {
-    agent any
+    agent jenkins-agent1
 
     stages {
         stage('Checkout Code') {
