@@ -4,7 +4,8 @@
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/poojabharambe18/maven-projects.git'
+                checkout scm
+                 // git url: 'https://github.com/poojabharambe18/maven-projects.git'
             }
         }
 
