@@ -1,20 +1,35 @@
 pipeline {
     agent { label 'jenkins-agent1' }
 
+    tools {
+        jdk 'jdk21'
+        maven 'maven3'
+    }
+
     stages {
-        stage('Checkout Code') {
+        stage('Clean Workspace') {
             steps {
-                checkout scm
-                // OR
-                // git url: 'https://github.com/poojabharambe18/maven-projects.git'
+                cleanWs()
             }
         }
 
-        stage('Build & SonarQube') {
+        stage('Checkout Code') {
+            steps {
+                git url: 'https://github.com/poojabharambe18/maven-projects.git', branch: 'master'
+            }
+        }
+
+        stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh 'mvn clean package sonar:sonar -U'
+                    sh 'mvn sonar:sonar -U'
                 }
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package -U'
             }
         }
     }
